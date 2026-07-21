@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Радислав Гандапас — Управляйте жизнью как бизнесом</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/hero-opt.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--canvas:#e5e4e1;--card:#ffffff;--ink:#0d0d0d;--slate:#46453f;--smoke:#8b8a84;--ash:#c9c8c3;--gold:#E6A93C;--red:#EF3B32;--disp:'Oswald',sans-serif;--body:'Golos Text',sans-serif;--mono:'JetBrains Mono',monospace}
-html{scroll-behavior:smooth;background:#e5e4e1}
-body{background:var(--canvas);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+:root{--canvas:#e7e4de;--card:#ffffff;--ink:#0d0d0d;--slate:#46453f;--smoke:#8b8a84;--ash:#c9c8c3;--gold:#E6A93C;--red:#EF3B32;--disp:'Oswald',sans-serif;--body:'Golos Text',sans-serif;--mono:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth;background:#ddd8d0}
+body{background:linear-gradient(115deg,rgba(255,255,255,0) 32%,rgba(255,253,247,.75) 50%,rgba(255,255,255,0) 68%) fixed,linear-gradient(160deg,#f0eeea 0%,#e7e3dc 46%,#d8d2c8 100%) fixed;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
 a{color:var(--ink);text-decoration:none}
 a:hover{color:var(--gold)}
 .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
@@ -40,7 +42,7 @@ h1.rv.in,h2.rv.in{clip-path:inset(-4% -4% -10% -4%)}
 .rv-l.in,.rv-r.in{transform:none}
 /* header */
 header{position:fixed;inset:0 0 auto;z-index:50;padding:18px 0;transition:background .3s}
-header.scrolled{background:rgba(229,228,225,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--ash)}
+header.scrolled{background:rgba(232,229,223,.88);backdrop-filter:blur(14px);border-bottom:1px solid #d0cbc2}
 header.menu-open .logo{color:#fff}
 header.menu-open.scrolled{background:transparent;border-bottom-color:transparent;backdrop-filter:none}
 .hrow{display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -71,8 +73,6 @@ nav.pill a:hover{background:var(--canvas);color:var(--ink)}
 .hero-photo img{position:absolute;inset:-4% 0;width:100%;height:108%;object-fit:cover;object-position:50% 20%;will-change:transform}
 .hero-photo .chip{position:absolute;left:20px;bottom:20px;background:rgba(13,13,13,.72);backdrop-filter:blur(10px);color:#fff;border-radius:20px;padding:14px 20px;font-size:13px;line-height:1.45}
 .hero-photo .chip b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;font-weight:500}
-.scrolldn{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);animation:bob 2.4s ease-in-out infinite}
-@keyframes bob{50%{transform:translate(-50%,8px)}}
 /* marquee */
 .marquee{background:var(--ink);overflow:hidden;padding:20px 0;transform:rotate(-1.2deg) scale(1.02);margin:10px 0}
 .mq-track{display:flex;gap:56px;width:max-content;animation:mq 26s linear infinite}
@@ -193,7 +193,7 @@ ul.checks li::before{content:"";position:absolute;left:0;top:22px;width:18px;hei
 .sbody h3{font-family:var(--disp);text-transform:uppercase;font-size:21px;font-weight:600;line-height:1.1}
 .sbody .btn{margin-top:auto;align-self:flex-start;padding:13px 26px;font-size:14px}
 .sched-nav{display:flex;gap:10px;justify-content:center;margin-top:26px}
-.snav{width:52px;height:52px;border-radius:999px;background:var(--card);border:none;font-size:19px;cursor:pointer;transition:background .2s,transform .2s}
+.snav{width:52px;height:52px;border-radius:999px;background:var(--card);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,transform .2s}
 .snav:hover{background:var(--gold)}
 .snav:active{transform:scale(.94)}
 /* client logo marquee */
@@ -231,6 +231,8 @@ footer a:hover{color:var(--gold)}
 @media (max-width:1060px){nav.pill{display:none}}
 @media (max-width:900px){
 .hero-grid,.cols2,.web-grid,.split{grid-template-columns:1fr}
+.hero-grid>*,.cols2>*,.web-grid>*,.split>*,.flag-in>*,.nums-grid>*{min-width:0}
+.btn{white-space:normal}
 .hero{padding-top:110px;min-height:auto}
 .hero-photo{aspect-ratio:4/4.4;order:-1;max-height:52vh}
 .cards3{grid-template-columns:1fr}
@@ -264,7 +266,7 @@ footer a:hover{color:var(--gold)}
 .vidw.open{width:min(420px,calc(100vw - 40px));cursor:default}
 .vidw.open .play,.vidw.open .vlabel{display:none}
 .vidw iframe{display:block;width:100%;aspect-ratio:16/9;border:none}
-@media (max-width:600px){.vidw{width:170px;right:14px;bottom:14px}}
+@media (max-width:600px){.vidw{width:170px;right:14px;bottom:14px}.nums-grid{grid-template-columns:1fr;gap:36px}.nval{font-size:clamp(44px,13vw,60px)}}
 </style>
 </head>
 <body>
@@ -299,10 +301,9 @@ footer a:hover{color:var(--gold)}
 </div>
 </div>
 <div class="hero-photo rv-r rv">
-<img src="assets/photo-hero-2.jpg" alt="Радислав Гандапас" data-px="-0.05">
+<img src="assets/hero-opt.jpg" alt="Радислав Гандапас" data-px="-0.05" fetchpriority="high" decoding="async">
 </div>
 </div>
-<div class="scrolldn">Листайте</div>
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="mq-track" id="mq"><span>Деньги</span><span>Время</span><span>Статус</span><span>Энергия</span><span>Лидерство</span><span>Коммуникация</span></div></div>
@@ -348,7 +349,7 @@ footer a:hover{color:var(--gold)}
 <div class="pills rv"><span><b>01</b>Деньги</span><span><b>02</b>Время</span><span><b>03</b>Статус</span><span><b>04</b>Энергия</span></div>
 <a class="btn btn-gold rv" href="#">Подать заявку в клуб</a>
 </div>
-<div class="imgcard rv rv-r"><img src="assets/photo-club.jpg" alt="Встреча клуба Люди 3.0" data-px="-0.06"></div>
+<div class="imgcard rv rv-r"><img loading="lazy" decoding="async" src="assets/photo-club.jpg" alt="Встреча клуба Люди 3.0" data-px="-0.06"></div>
 </div>
 </div>
 </section>
@@ -358,7 +359,7 @@ footer a:hover{color:var(--gold)}
 <div class="eyebrow rv">Тренинги</div>
 <h2 class="disp rv">Открытые тренинги</h2>
 <div class="flag rv">
-<img src="assets/photo-zayavi.jpg" alt="Радислав Гандапас на сцене" data-px="-0.07">
+<img loading="lazy" decoding="async" src="assets/zayavi-opt.jpg" alt="Радислав Гандапас на сцене" data-px="-0.07">
 <div class="flag-in">
 <div>
 <span class="tag">Флагман</span>
@@ -373,9 +374,9 @@ footer a:hover{color:var(--gold)}
 </div>
 <h3 class="subh rv">Программы</h3>
 <div class="proglist rv">
-<div class="prow"><span class="num">01</span><span class="t">Технология принятия решений</span><span class="arr">→</span></div>
-<div class="prow"><span class="num">02</span><span class="t">Мастер слова. Публичные выступления</span><span class="arr">→</span></div>
-<div class="prow"><span class="num">03</span><span class="t">Ораторское мастерство. Продвинутый уровень</span><span class="arr">→</span></div>
+<div class="prow"><span class="num">01</span><span class="t">Технология принятия решений</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+<div class="prow"><span class="num">02</span><span class="t">Мастер слова. Публичные выступления</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+<div class="prow"><span class="num">03</span><span class="t">Ораторское мастерство. Продвинутый уровень</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
 </div>
 <div class="rowcta rv"><a class="btn btn-ghost" href="#">Смотреть все программы</a></div>
 </div>
@@ -393,7 +394,7 @@ footer a:hover{color:var(--gold)}
 <article class="scard"><div class="stop"><span class="mono">Очно · 2 дня</span><div class="sdate">24–25 октября</div><span class="scity">Алматы</span></div><div class="sbody"><h3>Мастер слова. Публичные выступления</h3><a class="btn btn-ghost" href="#">Записаться</a></div></article>
 <article class="scard"><div class="stop"><span class="mono">Очно · 2 дня</span><div class="sdate">14–15 ноября</div><span class="scity">Москва</span></div><div class="sbody"><h3>Ораторское мастерство. Продвинутый уровень</h3><a class="btn btn-ghost" href="#">Записаться</a></div></article>
 </div>
-<div class="sched-nav"><button class="snav" data-dir="-1" aria-label="Назад">←</button><button class="snav" data-dir="1" aria-label="Вперед">→</button></div>
+<div class="sched-nav"><button class="snav" data-dir="-1" aria-label="Назад"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H5"/><path d="M11 5l-7 7 7 7"/></svg></button><button class="snav" data-dir="1" aria-label="Вперед"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></button></div>
 </div>
 </div>
 </section>
@@ -415,16 +416,16 @@ footer a:hover{color:var(--gold)}
 </div>
 </div>
 <div class="lgmq rv"><div class="lgmq-track">
-<div class="lgcard"><img src="assets/logos/logo-01.png" alt="Альфа-Банк" style="height:28px"></div>
-<div class="lgcard"><img src="assets/logos/logo-02.png" alt="Ростелеком" style="height:30px"></div>
-<div class="lgcard"><img src="assets/logos/logo-03.png" alt="Норникель" style="height:26px"></div>
-<div class="lgcard"><img src="assets/logos/logo-04.png" alt="Билайн" style="height:32px"></div>
-<div class="lgcard"><img src="assets/logos/logo-05.png" alt="Сбер" style="height:30px"></div>
-<div class="lgcard"><img src="assets/logos/logo-06.png" alt="МТС" style="height:46px"></div>
-<div class="lgcard"><img src="assets/logos/logo-07.png" alt="" style="height:38px"><img src="assets/logos/logo-08.png" alt="РУСАЛ" style="height:28px"></div>
-<div class="lgcard"><img src="assets/logos/logo-09.png" alt="Росгосстрах" style="height:24px"></div>
-<div class="lgcard"><img src="assets/logos/logo-10.png" alt="ТТК" style="height:30px"></div>
-<div class="lgcard"><img src="assets/logos/logo-11.png" alt="Эльдорадо" style="height:26px"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/logos/logo-01.png" alt="Альфа-Банк" style="height:28px"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/logos/logo-02.png" alt="Ростелеком" style="height:30px"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/logos/logo-03.png" alt="Норникель" style="height:26px"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/logos/logo-04.png" alt="Билайн" style="height:32px"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/logos/logo-05.png" alt="Сбер" style="height:30px"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/logos/logo-06.png" alt="МТС" style="height:46px"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/logos/logo-07.png" alt="" style="height:38px"><img loading="lazy" decoding="async" src="assets/logos/logo-08.png" alt="РУСАЛ" style="height:28px"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/logos/logo-09.png" alt="Росгосстрах" style="height:24px"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/logos/logo-10.png" alt="ТТК" style="height:30px"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/logos/logo-11.png" alt="Эльдорадо" style="height:26px"></div>
 </div></div>
 </section>
 
@@ -490,17 +491,17 @@ footer a:hover{color:var(--gold)}
 <div class="eyebrow rv">Книги</div>
 <h2 class="disp rv">12 книг по лидерству и&nbsp;управлению собой</h2>
 <div class="books-grid">
-<div class="book rv"><div class="cover"><span class="ph">Обложка</span><em>Камасутра для оратора</em></div><div class="meta"><span>Ораторское искусство</span><span>→</span></div></div>
-<div class="book rv" style="transition-delay:.1s"><div class="cover"><span class="ph">Обложка</span><em>Харизма лидера</em></div><div class="meta"><span>Лидерство</span><span>→</span></div></div>
-<div class="book rv" style="transition-delay:.2s"><div class="cover"><span class="ph">Обложка</span><em>Полная Ж. Жизнь как бизнес-проект</em></div><div class="meta"><span>Управление собой</span><span>→</span></div></div>
+<div class="book rv"><div class="cover"><span class="ph">Обложка</span><em>Камасутра для оратора</em></div><div class="meta"><span>Ораторское искусство</span><span style="display:flex"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div></div>
+<div class="book rv" style="transition-delay:.1s"><div class="cover"><span class="ph">Обложка</span><em>Харизма лидера</em></div><div class="meta"><span>Лидерство</span><span style="display:flex"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div></div>
+<div class="book rv" style="transition-delay:.2s"><div class="cover"><span class="ph">Обложка</span><em>Полная Ж. Жизнь как бизнес-проект</em></div><div class="meta"><span>Управление собой</span><span style="display:flex"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div></div>
 </div>
 <div class="bookrow rv"><a class="btn btn-ghost" href="#">Все книги</a><span style="color:var(--smoke);font-size:14px">Купить:</span><a class="lnk" href="#">OZON</a><a class="lnk" href="#">ЛитРес</a></div>
 </div>
 </section>
 
 <section class="cta2">
-<a class="half goldbg" href="#efir"><div class="top"><h2 class="disp">Прийти на&nbsp;эфир</h2><span class="arr2">↗</span></div><p>Приходите на ближайший бесплатный эфир, если хотите разобраться в теме.</p></a>
-<a class="half litebg" href="https://wa.me/79852559505"><div class="top"><h2 class="disp">Написать по корпоративному запросу</h2><span class="arr2">↗</span></div><p>Напишите в WhatsApp, если нужно обучить команду.</p></a>
+<a class="half goldbg" href="#efir"><div class="top"><h2 class="disp">Прийти на&nbsp;эфир</h2><span class="arr2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div><p>Приходите на ближайший бесплатный эфир, если хотите разобраться в теме.</p></a>
+<a class="half litebg" href="https://wa.me/79852559505"><div class="top"><h2 class="disp">Написать по корпоративному запросу</h2><span class="arr2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div><p>Напишите в WhatsApp, если нужно обучить команду.</p></a>
 </section>
 </main>
 
@@ -526,7 +527,7 @@ footer a:hover{color:var(--gold)}
 
 <div class="vidw" id="vidw">
 <div class="thumbbox" id="vidw-t">
-<img src="https://i.ytimg.com/vi/2DsdLHTyXRA/hqdefault.jpg" alt="Видео: Радислав Гандапас">
+<img loading="lazy" decoding="async" src="https://i.ytimg.com/vi/2DsdLHTyXRA/hqdefault.jpg" alt="Видео: Радислав Гандапас">
 <span class="play"></span>
 <span class="vlabel">Смотреть видео</span>
 <button class="vx" id="vidw-x" aria-label="Закрыть">✕</button>
