@@ -192,4 +192,35 @@
       form.replaceWith(p);
     });
   });
+
+  /* ---------- Разворачивание списка программ ----------
+     Кнопка [data-expand] раскрывает скрытые строки .prow--more
+     в списке с соответствующим id и меняет свой текст. */
+  document.querySelectorAll('[data-expand]').forEach(function (btn) {
+    var list = document.getElementById(btn.dataset.expand);
+    if (!list) return;
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', function () {
+      var open = list.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? btn.dataset.less : btn.dataset.more;
+    });
+  });
+
+  /* ---------- Видео в секциях (Rutube/YouTube по клику) ----------
+     Активна только у .videobox с data-embed. Заглушки без адреса
+     остаются статичными. Ролик подгружается лишь после клика. */
+  document.querySelectorAll('.videobox[data-embed]').forEach(function (box) {
+    box.addEventListener('click', function () {
+      if (box.dataset.loaded) return;
+      box.dataset.loaded = '1';
+      var f = document.createElement('iframe');
+      f.src = box.dataset.embed;
+      f.title = 'Видео: Радислав Гандапас';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      box.innerHTML = '';
+      box.appendChild(f);
+    });
+  });
 })();

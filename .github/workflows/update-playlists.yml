@@ -1,0 +1,45 @@
+name: Обновление выпусков (подкаст и фильмы)
+
+# Раз в день тянет свежие выпуски из плейлистов YouTube и обновляет карточки.
+# Работает на стороне GitHub — сайт остаётся статикой без внешних запросов.
+# Расписание запускается только на ветке по умолчанию (main).
+
+on:
+  schedule:
+    - cron: '17 5 * * *'      # ежедневно ~08:17 по Москве
+  workflow_dispatch: {}        # плюс запуск вручную из вкладки Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-playlists
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Установить зависимости
+        run: pip install --quiet Pillow
+
+      - name: Обновить карточки
+        run: python3 .github/scripts/update_playlists.py
+
+      - name: Закоммитить изменения, если есть
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html assets/img/podcast assets/img/films
+            git commit -m "Автообновление выпусков подкаста и фильмов"
+            git push
+          else
+            echo "Изменений нет — коммит не нужен"
+          fi

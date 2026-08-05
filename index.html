@@ -4,23 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Политика безопасности. Всё своё; единственный внешний адрес —
-     плеер YouTube, и тот подключается только после клика по видео.
+<!-- Политика безопасности. Всё своё; внешние адреса — только плееры
+     (YouTube и Rutube), и те подключаются только после клика по видео.
      frame-ancestors в <meta> браузеры игнорируют, поэтому защита от
      вложения в чужой iframe живёт в _headers (см. README). -->
 <meta http-equiv="Content-Security-Policy" content="
   default-src 'none';
   img-src 'self';
+  media-src 'self';
   style-src 'self';
   font-src 'self';
   script-src 'self';
-  frame-src https://www.youtube-nocookie.com;
+  frame-src https://www.youtube-nocookie.com https://rutube.ru;
   base-uri 'none';
   form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
-<title>Радислав Гандапас — Управляйте жизнью как бизнесом</title>
-<meta name="description" content="Радислав Гандапас — специалист по лидерству и публичным выступлениям, президент Ассоциации спикеров СНГ, TOP-30 Global Gurus. Открытые и корпоративные тренинги, клуб «Люди 3.0», персональный коучинг. Более 1200 тренингов с 1996 года.">
+<title>Радислав Гандапас — выступления, тренинги и коммуникация</title>
+<meta name="description" content="Радислав Гандапас — специалист по лидерству и публичным выступлениям, президент Ассоциации спикеров СНГ, TOP-30 Global Gurus. Мастер-классы, тренинги, корпоративное обучение и персональная работа. Более 1200 тренингов с 1996 года.">
 
 <link rel="canonical" href="https://shbshv-czec.github.io/radislavgandapas/">
 
@@ -28,8 +29,8 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Радислав Гандапас">
 <meta property="og:url" content="https://shbshv-czec.github.io/radislavgandapas/">
-<meta property="og:title" content="Радислав Гандапас — Управляйте жизнью как бизнесом">
-<meta property="og:description" content="Лидерство, коммуникация и управление собой. Открытые и корпоративные тренинги, клуб «Люди 3.0», коучинг. Более 1200 тренингов с 1996 года.">
+<meta property="og:title" content="Радислав Гандапас — выступления, тренинги и коммуникация">
+<meta property="og:description" content="Публичные выступления, переговоры, управление собой и людьми. Мастер-классы и тренинги, корпоративное обучение, персональная работа. Более 1200 тренингов с 1996 года.">
 <meta property="og:image" content="https://shbshv-czec.github.io/radislavgandapas/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -61,7 +62,7 @@
       "@id": "https://shbshv-czec.github.io/radislavgandapas/#radislav",
       "name": "Радислав Гандапас",
       "jobTitle": "Специалист по лидерству и публичным выступлениям",
-      "description": "Президент Ассоциации спикеров СНГ. Автор 12 книг по лидерству, ораторскому искусству и управлению собой. Провёл более 1200 тренингов с 1996 года.",
+      "description": "Президент Ассоциации спикеров СНГ. Автор книг по лидерству, ораторскому искусству и управлению собой. Провёл более 1200 тренингов с 1996 года.",
       "url": "https://shbshv-czec.github.io/radislavgandapas/",
       "image": "https://shbshv-czec.github.io/radislavgandapas/assets/img/og-image.jpg",
       "email": "mail@radislavgandapas.com",
@@ -96,29 +97,31 @@
 <div class="wrap hrow">
 <a class="logo" href="#top">Радислав<br>Гандапас<em>.</em></a>
 <nav class="pill">
-<a href="#efir">Ближайший эфир</a><a href="#club">Клуб</a><a href="#training">Тренинги</a><a href="#corp">Корпоративным клиентам</a><a href="#coach">Коучинг</a><a href="#podcast">Подкаст</a>
+<a href="#events">Тренинг в Москве</a><a href="#mk">Форматы выступлений</a><a href="#sched">Расписание</a><a href="#corp">Корпоративным клиентам</a><a href="#coach">Коучинг</a><a href="#video">Видео</a>
 </nav>
 <div class="hcta">
 <a class="wa" href="https://wa.me/79852559505">Написать в WhatsApp</a>
-<a class="btn btn-gold" href="#efir">Прийти на эфир</a>
+<a class="btn btn-gold" href="#sched">Смотреть расписание</a>
 <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
 </div>
 </div>
 </header>
 <div class="mnav" id="mnav">
-<a href="#efir">Ближайший эфир</a><a href="#club">Клуб</a><a href="#training">Тренинги</a><a href="#corp">Корпоративным клиентам</a><a href="#coach">Коучинг</a><a href="#podcast">Подкаст</a>
-<a class="btn btn-gold" href="#efir">Прийти на эфир</a>
+<a href="#events">Тренинг в Москве</a><a href="#mk">Форматы выступлений</a><a href="#sched">Расписание</a><a href="#corp">Корпоративным клиентам</a><a href="#coach">Коучинг</a><a href="#video">Видео</a>
+<a class="btn btn-gold" href="#sched">Смотреть расписание</a>
 </div>
 
 <main id="top">
+
+<!-- ═══════════════ 1. Первый экран — про Радислава ═══════════════ -->
 <section class="hero">
 <div class="wrap hero-grid">
 <div>
-<div class="eyebrow rv">Радислав Гандапас — президент Ассоциации спикеров СНГ, TOP30 Global Gurus</div>
-<h1 class="disp rv" data-d="08">Управляйте жизнью так&nbsp;же системно, как управляете работой и&nbsp;проектами</h1>
-<p class="lead rv" data-d="16">Помогаю руководителям, предпринимателям и лидерам мнений увидеть риски заранее и удерживать результат без перегрузки. С 1996 года на сцене.</p>
+<div class="eyebrow rv">Президент Ассоциации спикеров СНГ · TOP30 Global Gurus · Лауреат Книжной премии Рунета</div>
+<h1 class="disp rv" data-d="08">Радислав Гандапас — эксперт по&nbsp;лидерству и&nbsp;публичным выступлениям</h1>
+<p class="lead rv" data-d="16">Учит руководителей и команды выступать убедительно, вести за собой людей и принимать решения в условиях неопределенности. На сцене с 1996 года, провел больше 1200 тренингов.</p>
 <div class="hero-cta rv" data-d="24">
-<a class="btn btn-gold" href="#efir">Прийти на эфир</a>
+<a class="btn btn-gold" href="#sched">Выступления и тренинги</a>
 <a class="lnk" href="#corp">Заказать корпоративный тренинг</a>
 </div>
 </div>
@@ -128,120 +131,123 @@
 </div>
 </section>
 
-<div class="marquee" aria-hidden="true"><div class="mq-track" id="mq"><span>Деньги</span><span>Время</span><span>Статус</span><span>Энергия</span><span>Лидерство</span><span>Коммуникация</span></div></div>
-
-<section class="sec">
+<!-- ═══════════════ Мероприятия в Москве — ближайший тренинг ═══════════════ -->
+<section class="sec sec--tight" id="events">
 <div class="wrap">
-<div class="cols2">
-<p class="rv rv-l">Большинство людей живут по решениям, которые приняли десять или двадцать лет назад. Эти решения давно никто не пересматривает, они просто исполняются, сами собой. Изменить что-то мешает устаревшая логика управления, по которой человек продолжает выбирать день за днем.</p>
-<p class="rv rv-r">Я показываю, как провести аудит собственной жизни так же трезво, как вы проводите аудит бизнеса. Где ресурсы уходят впустую, какие процессы держатся только на инерции и что на самом деле определяет ваш результат.</p>
-</div>
-</div>
-</section>
-
-<section class="dark sec" id="efir">
-<div class="wrap">
-<div class="eyebrow rv">Ближайший эфир</div>
-<div class="web-grid">
-<div>
-<h2 class="disp rv">Управляй жизнью как&nbsp;бизнесом</h2>
-<p class="rv">На вебинаре я покажу систему, которая позволяет увидеть риски заранее и управлять жизнью так же системно, как вы управляете работой и проектами. Разберем «Матрицу жизни» — инструмент на принципах Balanced Scorecard и логике системного управления.</p>
-<div class="datepill rv">27 июля, 19:00 по Москве · бесплатно</div>
-</div>
-<div class="formcard rv rv-r">
-<h3>Займите место на эфире</h3>
-<form data-fake data-done="Готово. Письмо с «Матрицей жизни» уже летит к вам на почту.">
-<label class="vh" for="f-name">Имя</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Имя" required>
-<label class="vh" for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" placeholder="E-mail" required>
-<button class="btn btn-gold" type="submit">Получить «Матрицу жизни»</button>
-</form>
-<p class="note">После регистрации пришлю рабочую тетрадь «CEO собственной жизни» и шаблон «Матрица жизни».</p>
-</div>
-</div>
-</div>
-</section>
-
-<section class="club sec" id="club">
-<div class="wrap">
-<div class="split">
-<div>
-<div class="eyebrow rv">Клуб</div>
-<h2 class="disp rv">Люди 3.0</h2>
-<p class="big rv">Закрытое пространство для тех, кто управляет собой всерьез. Я провожу прямые эфиры, разбираю ваши ситуации и приглашаю специалистов, которые делятся технологиями из первых рук. Здесь же участники знакомятся между собой и находят новые контакты.</p>
-<div class="pills rv"><span><b>01</b>Деньги</span><span><b>02</b>Время</span><span><b>03</b>Статус</span><span><b>04</b>Энергия</span></div>
-<a class="btn btn-gold rv" href="#">Подать заявку в клуб</a>
-</div>
-<div class="imgcard rv rv-r"><img loading="lazy" decoding="async" src="assets/img/club.webp" srcset="assets/img/club-760.webp 760w, assets/img/club.webp 1280w" sizes="(max-width:900px) calc(100vw - 48px), min(48vw, 570px)" width="1280" height="853" alt="Встреча клуба Люди 3.0" data-px="-0.06"></div>
-</div>
-</div>
-</section>
-
-<section class="sec" id="training">
-<div class="wrap">
-<div class="eyebrow rv">Тренинги</div>
-<h2 class="disp rv">Открытые тренинги</h2>
 <div class="flag rv">
 <img loading="lazy" decoding="async" src="assets/img/stage.webp" srcset="assets/img/stage-900.webp 900w, assets/img/stage.webp 1500w" sizes="(max-width:1240px) 100vw, 1192px" width="1500" height="1000" alt="Радислав Гандапас на сцене" data-px="-0.07">
 <div class="flag-in">
 <div>
-<span class="tag">Флагман</span>
-<h3>Заяви о себе.<br>Лидерские стратегии коммуникации</h3>
-<p>Если о вас не знают, ваши возможности проходят мимо. На тренинге разбираем, как произвести сильное первое впечатление, удерживать внимание аудитории и говорить так, чтобы вас запомнили и захотели с вами работать. Проходит очно в городах и онлайн.</p>
+<span class="tag">Тренинг в Москве</span>
+<h3>Технология принятия решений</h3>
+<p>Навык принятия решений остается в топе Давосского форума из года в год. Учимся решать быстрее и точнее: работать с информацией, обходить ловушки мышления, подключать критическое мышление и интуицию.</p>
 </div>
 <div class="side">
-<span class="mono">Ближайшие даты и города</span>
-<a class="btn btn-gold" href="#">Выбрать город и записаться</a>
+<span class="mono">Ближайшая дата · 5 сентября</span>
+<a class="btn btn-gold" href="#sched">Принять участие</a>
 </div>
 </div>
 </div>
-<h3 class="subh rv">Программы</h3>
-<div class="proglist rv">
-<div class="prow"><span class="num">01</span><span class="t">Технология принятия решений</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
-<div class="prow"><span class="num">02</span><span class="t">Мастер слова. Публичные выступления</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
-<div class="prow"><span class="num">03</span><span class="t">Ораторское мастерство. Продвинутый уровень</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
-</div>
-<div class="rowcta rv"><a class="btn btn-ghost" href="#">Смотреть все программы</a></div>
 </div>
 </section>
 
+<!-- ═══════════════ 2. Мастер-классы ═══════════════ -->
+<section class="sec sec--tight" id="mk">
+<div class="wrap">
+<div class="eyebrow rv">Короткий живой формат</div>
+<h2 class="disp rv">Мастер-классы</h2>
+<p class="big rv seclead">Выступление на два-три часа по одной теме. Без расписанного на весь день тренинга: разбираем предметно и сразу применяем. Очно в городах и онлайн.</p>
+<div class="proglist rv" id="mk-list">
+<div class="prow"><span class="num">01</span><span class="t">Эмоциональный интеллект лидера</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+<div class="prow"><span class="num">02</span><span class="t">Лайфхаки гениев. Секреты эффективности</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+<div class="prow"><span class="num">03</span><span class="t">Принятие решений в условиях турбулентности</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+<div class="prow prow--more"><span class="num">04</span><span class="t">Заяви о себе</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+<div class="prow prow--more"><span class="num">05</span><span class="t">Человек 3.0</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+</div>
+<div class="rowcta rv">
+<a class="btn btn-gold" href="#sched">Выбрать город и дату</a>
+<button class="btn btn-ghost" type="button" data-expand="mk-list" data-more="Смотреть все программы мастер-классов" data-less="Свернуть программы">Смотреть все программы мастер-классов</button>
+</div>
+</div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="mq-track" id="mq"><span>Лидерство</span><span>Выступления</span><span>Переговоры</span><span>Коммуникация</span><span>Управление собой</span><span>Команда</span></div></div>
+
+<!-- ═══════════════ 3. Тренинги ═══════════════ -->
+<section class="sec" id="training">
+<div class="wrap">
+<div class="eyebrow rv">Полный формат: один или два дня</div>
+<h2 class="disp rv">Тренинги</h2>
+<p class="big rv seclead">Глубокое погружение в тему с отработкой на практике. Один или два дня, очно или онлайн. Программу под компанию собираем по запросу.</p>
+
+<div class="proglist rv" id="tr-list">
+<div class="prow"><span class="num">01</span><span class="t">Мастер слова</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+<div class="prow"><span class="num">02</span><span class="t">Технология принятия решений</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+<div class="prow"><span class="num">03</span><span class="t">Лидер и команда</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+<div class="prow prow--more"><span class="num">04</span><span class="t">Заяви о себе</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+<div class="prow prow--more"><span class="num">05</span><span class="t">Человек 3.0</span><span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div>
+</div>
+<div class="rowcta rv">
+<a class="btn btn-gold" href="#sched">Выбрать город и дату</a>
+<button class="btn btn-ghost" type="button" data-expand="tr-list" data-more="Смотреть все программы тренингов" data-less="Свернуть программы">Смотреть все программы тренингов</button>
+</div>
+</div>
+</section>
+
+<!-- ═══════════════ 4. Расписание ═══════════════ -->
 <section class="sec sec--flush" id="sched">
 <div class="wrap">
-<div class="eyebrow rv">Расписание</div>
-<h2 class="disp rv">Ближайшие даты и&nbsp;города</h2>
+<div class="eyebrow rv">Ближайшие даты и города</div>
+<h2 class="disp rv">Расписание</h2>
 <div class="sched-wrap rv">
 <div class="sched" id="sched-track">
-<article class="scard"><div class="stop"><span class="mono">Очно · 2 дня</span><div class="sdate">12–13 сентября</div><span class="scity">Москва</span></div><div class="sbody"><h3>Заяви о себе. Лидерские стратегии коммуникации</h3><a class="btn btn-ghost" href="#">Записаться</a></div></article>
-<article class="scard"><div class="stop"><span class="mono">Очно · 2 дня</span><div class="sdate">26–27 сентября</div><span class="scity">Санкт-Петербург</span></div><div class="sbody"><h3>Заяви о себе. Лидерские стратегии коммуникации</h3><a class="btn btn-ghost" href="#">Записаться</a></div></article>
-<article class="scard"><div class="stop"><span class="mono">Онлайн · 1 день</span><div class="sdate">10 октября</div><span class="scity">Онлайн</span></div><div class="sbody"><h3>Технология принятия решений</h3><a class="btn btn-ghost" href="#">Записаться</a></div></article>
-<article class="scard"><div class="stop"><span class="mono">Очно · 2 дня</span><div class="sdate">24–25 октября</div><span class="scity">Алматы</span></div><div class="sbody"><h3>Мастер слова. Публичные выступления</h3><a class="btn btn-ghost" href="#">Записаться</a></div></article>
-<article class="scard"><div class="stop"><span class="mono">Очно · 2 дня</span><div class="sdate">14–15 ноября</div><span class="scity">Москва</span></div><div class="sbody"><h3>Ораторское мастерство. Продвинутый уровень</h3><a class="btn btn-ghost" href="#">Записаться</a></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Тренинг</span><div class="sdate">7 августа</div><span class="scity">Москва</span></div><div class="sbody"><h3>Ораторское мастерство: продвинутый уровень</h3><span class="svenue">Бизнес-клуб Kelia</span></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Тренинг</span><div class="sdate">11–13 августа</div><span class="scity">Ташкент</span></div><div class="sbody"><h3>Взаимодействие 2.0</h3><span class="svenue">Капиталбанк</span></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Выступление</span><div class="sdate">14 августа</div><span class="scity">Ташкент</span></div><div class="sbody"><h3>«Уроки мастеров» на встрече Узбекистанского отделения Ассоциации спикеров СНГ</h3><a class="btn btn-ghost" href="https://cisspeakers.com/" target="_blank" rel="noopener">Подробнее</a></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Тренинг</span><div class="sdate">19 августа</div><span class="scity">ВТБ</span></div><div class="sbody"><h3>Презентация-сенсация</h3><span class="svenue">Корпоративный тренинг</span></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Тренинг</span><div class="sdate">21–23 августа</div><span class="scity">Нижний Новгород</span></div><div class="sbody"><h3>Корпоративный тренинг</h3></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Тренинг</span><div class="sdate">5 сентября</div><span class="scity">Москва</span></div><div class="sbody"><h3>Технология принятия решений</h3></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Выступление</span><div class="sdate">7–8 сентября</div><span class="scity">Москва</span></div><div class="sbody"><h3>Лайфхаки гениев. Секреты эффективности</h3><span class="svenue">HR Форум «Персонал экспо»</span><a class="btn btn-ghost" href="https://personalexpo.ru/" target="_blank" rel="noopener">Подробнее</a></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Заседание</span><div class="sdate">9 сентября</div><span class="scity">Москва</span></div><div class="sbody"><h3>Заседание Ассоциации спикеров СНГ</h3><a class="btn btn-ghost" href="https://cisspeakers.com/" target="_blank" rel="noopener">Подробнее</a></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Выступление</span><div class="sdate">10 сентября</div><span class="scity">Санкт-Петербург</span></div><div class="sbody"><h3>Лайфхаки гениев. Секреты эффективности</h3><span class="svenue">Конгресс «К.У.Р.С»</span><a class="btn btn-ghost" href="https://xn--j1aefdebfo.xn--p1ai/" target="_blank" rel="noopener">Подробнее</a></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Выступление</span><div class="sdate">10–13 сентября</div><span class="scity">Москва</span></div><div class="sbody"><h3>Лайфхаки гениев. Секреты эффективности</h3><span class="svenue">ПиР-2026</span><a class="btn btn-ghost" href="https://moscow.festpir.ru/" target="_blank" rel="noopener">Подробнее</a></div></article>
+
+<article class="scard"><div class="stop"><span class="mono">Выступление</span><div class="sdate">8 октября</div><span class="scity">Казань</span></div><div class="sbody"><h3>Эмоциональный интеллект лидера</h3><span class="svenue">Главный форум 2026, Татнефть Арена</span><a class="btn btn-ghost" href="https://v-russia.com/kazanforum.act" target="_blank" rel="noopener">Подробнее</a></div></article>
+
 </div>
 <div class="sched-nav"><button class="snav" data-dir="-1" aria-label="Назад"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H5"/><path d="M11 5l-7 7 7 7"/></svg></button><button class="snav" data-dir="1" aria-label="Вперед"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></button></div>
 </div>
 </div>
 </section>
 
+<!-- ═══════════════ 5. Корпоративным клиентам ═══════════════ -->
 <section class="sec corp sec--flush" id="corp">
 <div class="wrap split">
 <div>
-<div class="eyebrow rv">Корпоративным клиентам</div>
-<h2 class="disp rv">Обучение и&nbsp;стратегические сессии для&nbsp;команд</h2>
+<div class="eyebrow rv">Обучение и стратегические сессии для команд</div>
+<h2 class="disp rv">Корпоративным клиентам</h2>
 <p class="big rv">Провожу тренинги, стратегические сессии и выступления для топ-менеджмента и компаний. Работаю с тем, что влияет на результат бизнеса: устойчивость руководителей, качество решений, готовность команды действовать в неопределенности.</p>
 <a class="btn btn-dark rv" href="https://wa.me/79852559505">Обсудить программу для компании</a>
 </div>
-<div class="topics rv rv-r">
-<div><i>01</i>Жизнестойкость как лидерская компетенция</div>
-<div><i>02</i>Эмоциональный интеллект лидера</div>
-<div><i>03</i>Принятие решений в условиях турбулентности</div>
-<div><i>04</i>Лайфхаки гениев. Секреты эффективности</div>
-<div><i>05</i>Лидер и команда</div>
-</div>
+<!-- Видео (Rutube, 1–2 мин). Когда будет ссылка — заменить на:
+     <button class="videobox" data-embed="https://rutube.ru/play/embed/ID"> ... -->
+<div class="videobox is-cover rv rv-r" aria-hidden="true"><img src="assets/img/corp-cover.webp" width="1280" height="853" alt="Радислав Гандапас" loading="lazy" decoding="async"><span class="vplay"></span><span class="vcap">Видео · как я работаю с компаниями</span></div>
 </div>
 <div class="lgmq rv"><div class="lgmq-track">
 <div class="lgcard"><img loading="lazy" decoding="async" src="assets/img/logos/logo-01.webp" alt="Альфа-Банк" class="lg lg-01" width="410" height="73"></div>
 <div class="lgcard"><img loading="lazy" decoding="async" src="assets/img/logos/logo-02.webp" alt="Ростелеком" class="lg lg-02" width="407" height="103"></div>
 <div class="lgcard"><img loading="lazy" decoding="async" src="assets/img/logos/logo-03.webp" alt="Норникель" class="lg lg-03" width="412" height="87"></div>
-<div class="lgcard"><img loading="lazy" decoding="async" src="assets/img/logos/logo-04.webp" alt="Билайн" class="lg lg-04" width="412" height="80"></div>
+<div class="lgcard"><img loading="lazy" decoding="async" src="assets/img/logos/logo-04.webp" alt="Билайн" class="lg lg-04" width="657" height="129"></div>
 <div class="lgcard"><img loading="lazy" decoding="async" src="assets/img/logos/logo-05.webp" alt="Сбер" class="lg lg-05" width="401" height="62"></div>
 <div class="lgcard"><img loading="lazy" decoding="async" src="assets/img/logos/logo-06.webp" alt="МТС" class="lg lg-06" width="150" height="150"></div>
 <div class="lgcard"><img loading="lazy" decoding="async" src="assets/img/logos/logo-07.webp" alt="" class="lg lg-07" width="157" height="145"><img loading="lazy" decoding="async" src="assets/img/logos/logo-08.webp" alt="РУСАЛ" class="lg lg-08" width="183" height="41"></div>
@@ -251,79 +257,158 @@
 </div></div>
 </section>
 
+<!-- ═══════════════ 6. Персональная работа ═══════════════ -->
 <section class="sec coach sec--flush" id="coach">
 <div class="wrap split">
-<div class="imgph rv rv-l"><span>Фото · персональная работа</span></div>
+<!-- Видео Радислава про персональную работу. Когда будет ссылка —
+     заменить на <button class="videobox" data-embed="..."> -->
+<div class="videobox is-cover rv rv-l" aria-hidden="true"><img src="assets/img/coach-cover.webp" width="635" height="540" alt="Радислав Гандапас" loading="lazy" decoding="async"><span class="vplay"></span><span class="vcap">Видео · как проходит персональная работа</span></div>
 <div>
 <div class="eyebrow rv">Коучинг</div>
 <h2 class="disp rv">Персональная работа</h2>
 <p class="big rv">Индивидуальный формат для тех, кто готов вкладываться в себя. Шесть встреч по полтора часа в течение полугода, очно или онлайн. Ставим цели, выстраиваем стратегию, принимаем важные решения и пересобираем главные сферы жизни. На персональную работу я беру после короткого онлайн-собеседования.</p>
-<a class="btn btn-gold rv" href="#">Заполнить заявку на собеседование</a>
+<a class="btn btn-gold rv" href="https://docs.google.com/forms/d/e/1FAIpQLSeBmVWIq4W3qwYP50Lg6aEtLTKS29zZsxQ8_JnZ7WtDYPcdqA/viewform" target="_blank" rel="noopener">Заполнить заявку на собеседование</a>
 </div>
 </div>
 </section>
 
+<!-- ═══════════════ Цифры ═══════════════ -->
 <section class="sec sec--flush">
 <div class="wrap">
 <div class="nums">
-<div class="eyebrow rv">Цифры</div>
-<h2 class="disp rv">За тридцать лет работы</h2>
-<div class="nums-grid">
-<div class="rv"><div class="nval"><span data-count="4000000">0</span></div><div class="nlab">км преодолено ради встреч с участниками тренингов</div></div>
-<div class="rv" data-d="08"><div class="nval"><span data-count="110000">0</span></div><div class="nlab">человек прошли тренинги</div></div>
-<div class="rv" data-d="16"><div class="nval"><span data-count="1200">0</span></div><div class="nlab">тренингов с 1996 года</div></div>
-<div class="rv" data-d="24"><div class="nval"><span data-count="40">0</span><sup>%</sup></div><div class="nlab">корпоративных клиентов возвращаются снова</div></div>
+<div class="eyebrow rv">За тридцать лет работы</div>
+<h2 class="disp rv">Цифры</h2>
+<div class="nums-grid nums-grid--3">
+<div class="rv"><div class="nval"><span data-count="1200">0</span></div><div class="nlab">участников открытых тренингов</div></div>
+<div class="rv" data-d="08"><div class="nval"><span data-count="850">0</span></div><div class="nlab">корпоративных клиентов</div></div>
+<div class="rv" data-d="16"><div class="nval"><span data-count="47">0</span></div><div class="nlab">человек в персональной работе</div></div>
 </div>
 </div>
 </div>
 </section>
 
-<section class="sec pod sec--flush" id="podcast">
-<div class="wrap split">
+<!-- ═══════════════ 9. Видео — подкаст и фильмы ═══════════════ -->
+<section class="sec sec--flush" id="video">
+<div class="wrap">
+<div class="eyebrow rv">Подкаст и фильмы</div>
+<h2 class="disp rv">Видео</h2>
+
+<!-- Часть 1. Подкаст -->
+<div class="vblock rv">
+<div class="vhead"><h3 class="subh2">Подкаст «Лидерские стратегии»</h3></div>
+<p class="big">Каждую неделю разбираю вопросы, которые вы задаете после выступлений: лидерство, коммуникация, управление собой.</p>
+<div class="plat"><a href="#">RuTube</a><a href="#">VK Видео</a><a href="#">Аудиоверсии</a><a href="#">YouTube</a></div>
+<div class="vidgrid" id="podcast-grid">
+<!-- PODCAST:START — генерируется автоматически из плейлиста (.github/scripts/update_playlists.py), вручную не редактировать -->
+<a class="vcard" href="https://www.youtube.com/watch?v=3ZPbuPteCPo" target="_blank" rel="noopener"><span class="imgph imgph--169 imgph--filled"><img src="assets/img/podcast/ep1.webp" width="480" height="270" alt="" loading="lazy" decoding="async"></span><span class="vcard-cap">Кто главный в семье? | Гандапас х Бартон</span><span class="vcard-views">7 тыс. просмотров</span></a>
+<a class="vcard" href="https://www.youtube.com/watch?v=WbvzlXvw_hY" target="_blank" rel="noopener"><span class="imgph imgph--169 imgph--filled"><img src="assets/img/podcast/ep2.webp" width="480" height="270" alt="" loading="lazy" decoding="async"></span><span class="vcard-cap">Как воспитывать звезд? | Гандапас х Арифулина</span><span class="vcard-views">3,8 тыс. просмотров</span></a>
+<a class="vcard" href="https://www.youtube.com/watch?v=1PBc7Ec2kp8" target="_blank" rel="noopener"><span class="imgph imgph--169 imgph--filled"><img src="assets/img/podcast/ep3.webp" width="480" height="270" alt="" loading="lazy" decoding="async"></span><span class="vcard-cap">Успех в шоу-бизнесе: Скандалы — двигатель популярности? | Гандапас x Кипер</span><span class="vcard-views">3,9 тыс. просмотров</span></a>
+<!-- PODCAST:END -->
+</div>
+<!-- Ссылка появится, когда сторона Радислава создаст Яндекс.Форму -->
+<div class="rowcta"><button class="btn btn-gold" type="button" data-pending>Стать героем подкаста</button></div>
+</div>
+
+<!-- Часть 2. Фильмы -->
+<div class="vblock rv">
+<div class="vhead"><h3 class="subh2">Фильмы</h3></div>
+<p class="big">Документальный сериал Радислава «Здесь жил великий…» — про дома и квартиры великих людей: где они мечтали и работали, любили и страдали, задумывали свои свершения.</p>
+<div class="vidgrid" id="films-grid">
+<!-- FILMS:START — генерируется автоматически из плейлиста (.github/scripts/update_playlists.py), вручную не редактировать -->
+<a class="vcard" href="https://www.youtube.com/watch?v=bIYXFaIRaCY" target="_blank" rel="noopener"><span class="imgph imgph--169 imgph--filled"><img src="assets/img/films/film1.webp" width="480" height="270" alt="" loading="lazy" decoding="async"></span><span class="vcard-cap">Булгаков. Любимец Сталина, поклонник Гоголя и гений слова | «Здесь жил великий…»</span><span class="vcard-views">151 тыс. просмотров</span></a>
+<a class="vcard" href="https://www.youtube.com/watch?v=nU0PX9k_8g4" target="_blank" rel="noopener"><span class="imgph imgph--169 imgph--filled"><img src="assets/img/films/film2.webp" width="480" height="270" alt="" loading="lazy" decoding="async"></span><span class="vcard-cap">Гоголь. Секреты эффективности: жизнь, творчество и лайфхаки гения | «Здесь жил великий…»</span><span class="vcard-views">143 тыс. просмотров</span></a>
+<a class="vcard" href="https://www.youtube.com/watch?v=G6HQjfRBgaU" target="_blank" rel="noopener"><span class="imgph imgph--169 imgph--filled"><img src="assets/img/films/film3.webp" width="480" height="270" alt="" loading="lazy" decoding="async"></span><span class="vcard-cap">Чехов. Как талант и дисциплина создали гения | «Здесь жил великий…»</span><span class="vcard-views">170 тыс. просмотров</span></a>
+<!-- FILMS:END -->
+</div>
+<div class="rowcta"><a class="btn btn-ghost" href="https://youtube.com/playlist?list=PLHkpyDUzliZf0yyXypIbe6gSuLzmLsEaw" target="_blank" rel="noopener">Смотреть плейлист</a></div>
+</div>
+</div>
+</section>
+
+<!-- ═══════════════ 8. Telegram ═══════════════ -->
+<section class="sec sec--flush" id="tg">
+<div class="wrap">
+<div class="tg">
+<div class="tg-left">
+<div class="eyebrow rv">Telegram</div>
+<h2 class="disp rv">Telegram —<br>мой личный канал</h2>
+<p class="rv">Пишу про лидерство, публичные выступления и управление собой. Отвечаю на вопросы, которые вы задаете после выступлений, и делюсь тем, что работает на практике.</p>
+<a class="btn btn-gold rv" href="https://t.me/radislavgandapascom" target="_blank" rel="noopener">Подписаться</a>
+<span class="tg-handle rv">@radislavgandapascom</span>
+</div>
+<div class="tg-right rv rv-r">
+<svg class="tg-plane" width="128" height="128" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2L11 13" stroke="#2AABEE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="#2AABEE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<div class="phone">
+<div class="phone-screen phone-screen--shot">
+<video src="assets/video/tg-channel.mp4" width="540" height="1094" autoplay loop muted playsinline aria-label="Лента Telegram-канала «Радислав Гандапас»"></video>
+</div>
+</div>
+<div class="tg-qr">
+<img src="assets/img/tg-qr.svg" width="120" height="120" alt="QR-код на Telegram-канал Радислава Гандапаса" loading="lazy">
+<span class="tg-qr-cap">Наведите камеру</span>
+<svg class="tg-arrow" width="70" height="70" viewBox="0 0 70 70" fill="none" aria-hidden="true"><path d="M8 12c14 30 30 40 50 44" stroke="#2AABEE" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 6"/><path d="M52 48l8 8-11 2" stroke="#2AABEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══════════════ 11. Книги ═══════════════ -->
+<section class="sec sec--flush" id="books">
+<div class="wrap">
+<div class="eyebrow rv">По лидерству и управлению собой</div>
+<h2 class="disp rv">Книги</h2>
+<p class="big rv seclead">Среди книг Радислава — «Камасутра для оратора», «Полная Ж. Жизнь как бизнес-проект», книги по скриптам и алгоритмам успеха. Точный список подтвердит Радислав.</p>
+<div class="books-grid">
+<div class="book rv"><div class="cover"><img src="assets/img/books/kamasutra.webp" width="422" height="594" alt="Камасутра для оратора" loading="lazy" decoding="async"></div><div class="meta"><span>Ораторское искусство</span><span class="buy"><a href="#">OZON</a><a href="#">ЛитРес</a><a href="#">WB</a></span></div></div>
+<div class="book rv" data-d="1"><div class="cover"><img src="assets/img/books/polnayazh.webp" width="415" height="534" alt="Полная Ж. Жизнь как бизнес-проект" loading="lazy" decoding="async"></div><div class="meta"><span>Управление собой</span><span class="buy"><a href="#">OZON</a><a href="#">ЛитРес</a><a href="#">WB</a></span></div></div>
+<div class="book rv" data-d="2"><div class="cover"><img src="assets/img/books/skripty.webp" width="560" height="560" alt="Скрипты и алгоритмы успеха" loading="lazy" decoding="async"></div><div class="meta"><span>Эффективность</span><span class="buy"><a href="#">OZON</a><a href="#">ЛитРес</a><a href="#">WB</a></span></div></div>
+</div>
+<div class="bookrow rv"><a class="btn btn-ghost" href="#">Все книги</a></div>
+</div>
+</section>
+
+<!-- ═══════════════ Клуб «Люди 3.0» ═══════════════ -->
+<section class="club sec sec--flush" id="club">
+<div class="wrap">
+<div class="split">
 <div>
-<div class="eyebrow rv">Подкаст</div>
-<h2 class="disp rv">Лидерские стратегии</h2>
-<p class="big rv">Каждую неделю отвечаю на вопросы, которые вы задаете после выступлений, и разбираю темы лидерства, коммуникации и управления собой. Слушайте на удобной площадке.</p>
-<div class="plat rv"><a href="#">YouTube</a><a href="#">VK Видео</a><a href="#">RuTube</a><a href="#">Аудиоверсии</a></div>
-<p class="note rv">Подпишитесь, чтобы не пропускать новые выпуски</p>
+<div class="eyebrow rv">Клуб</div>
+<h2 class="disp rv">Люди 3.0</h2>
+<p class="big rv">Закрытое пространство для тех, кто управляет собой всерьез. Я провожу прямые эфиры, разбираю ваши ситуации и приглашаю специалистов, которые делятся технологиями из первых рук. Здесь же участники знакомятся между собой и находят новые контакты.</p>
+<div class="pills rv"><span><b>01</b>Деньги</span><span><b>02</b>Время</span><span><b>03</b>Статус</span><span><b>04</b>Энергия</span></div>
+<a class="btn btn-gold rv" href="https://school-radislavgandapas.ru/club_people" target="_blank" rel="noopener">Подать заявку в клуб</a>
 </div>
-<div class="imgph imgph--43 rv rv-r"><span>Обложка подкаста</span></div>
+<div class="imgcard rv rv-r"><img loading="lazy" decoding="async" src="assets/img/club.webp" srcset="assets/img/club-760.webp 760w, assets/img/club.webp 1280w" sizes="(max-width:900px) calc(100vw - 48px), min(48vw, 570px)" width="1280" height="853" alt="Встреча клуба Люди 3.0" data-px="-0.06"></div>
+</div>
 </div>
 </section>
 
-<section class="sec sec--flush">
+<!-- ═══════════════ 12. Пресс-центр ═══════════════ -->
+<section class="sec sec--flush" id="press">
 <div class="wrap">
 <div class="about">
 <div class="split split--top">
 <div>
-<div class="eyebrow rv">О Радиславе</div>
-<h2 class="disp rv">Коротко о&nbsp;себе</h2>
-<p class="big rv">Радислав Гандапас, специалист по лидерству и публичным выступлениям. Президент Ассоциации спикеров СНГ. Написал 12 книг по лидерству, ораторскому искусству и управлению собой. Провел больше 1200 тренингов с 1996 года.</p>
+<div class="eyebrow rv">Материалы для СМИ и организаторов</div>
+<h2 class="disp rv">Пресс-центр</h2>
+<p class="big rv">Резюме, фотографии и регалии Радислава для публикаций и анонсов.</p>
 <div class="badges rv"><span>№<b>7</b> — TOP-30 Global Gurus</span><span>№<b>9</b> — World's TOP-20 Communication Trainers</span><span><b>3×</b> лучший бизнес-тренер России</span></div>
-<a class="btn btn-dark rv" href="#">Скачать резюме и фотоархив</a>
+<div class="rowcta rv">
+<a class="btn btn-dark" href="https://radislavgandapas.com/upload/resume_2024.pdf" target="_blank" rel="noopener">Скачать резюме</a>
+<a class="btn btn-ghost" href="https://radislavgandapas.com/upload/files/RadislavGandapas_Photos.zip" target="_blank" rel="noopener">Фотобанк</a>
 </div>
-<div class="imgcard imgcard--portrait rv rv-r"><img loading="lazy" decoding="async" src="assets/img/portrait.webp" srcset="assets/img/portrait-700.webp 700w, assets/img/portrait.webp 1120w" sizes="(max-width:900px) calc(100vw - 100px), min(42vw, 500px)" width="1120" height="1679" alt="Радислав Гандапас" data-px="-0.05"></div>
+</div>
+<div class="imgcard imgcard--square rv rv-r"><img loading="lazy" decoding="async" src="assets/img/press.webp" srcset="assets/img/press-700.webp 700w, assets/img/press.webp 1120w" sizes="(max-width:900px) calc(100vw - 100px), min(42vw, 500px)" width="1120" height="930" alt="Радислав Гандапас"></div>
 </div>
 </div>
-</div>
-</section>
-
-<section class="sec sec--flush" id="books">
-<div class="wrap">
-<div class="eyebrow rv">Книги</div>
-<h2 class="disp rv">12 книг по лидерству и&nbsp;управлению собой</h2>
-<div class="books-grid">
-<div class="book rv"><div class="cover"><span class="ph">Обложка</span><em>Камасутра для оратора</em></div><div class="meta"><span>Ораторское искусство</span><span class="icn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div></div>
-<div class="book rv" data-d="1"><div class="cover"><span class="ph">Обложка</span><em>Харизма лидера</em></div><div class="meta"><span>Лидерство</span><span class="icn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div></div>
-<div class="book rv" data-d="2"><div class="cover"><span class="ph">Обложка</span><em>Полная Ж. Жизнь как бизнес-проект</em></div><div class="meta"><span>Управление собой</span><span class="icn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="M13 5l7 7-7 7"/></svg></span></div></div>
-</div>
-<div class="bookrow rv"><a class="btn btn-ghost" href="#">Все книги</a><span class="bookrow-lbl">Купить:</span><a class="lnk" href="#">OZON</a><a class="lnk" href="#">ЛитРес</a></div>
 </div>
 </section>
 
+<!-- ═══════════════ Финальные кнопки ═══════════════ -->
 <section class="cta2">
-<a class="half goldbg" href="#efir"><div class="top"><h2 class="disp">Прийти на&nbsp;эфир</h2><span class="arr2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div><p>Приходите на ближайший бесплатный эфир, если хотите разобраться в теме.</p></a>
-<a class="half litebg" href="https://wa.me/79852559505"><div class="top"><h2 class="disp">Написать по корпоративному запросу</h2><span class="arr2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div><p>Напишите в WhatsApp, если нужно обучить команду.</p></a>
+<a class="half goldbg" href="https://wa.me/79852559505"><div class="top"><h2 class="disp">Заказать корпоративный тренинг</h2><span class="arr2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div><p>Напишите в WhatsApp, если нужно обучить команду.</p></a>
+<a class="half litebg" href="https://t.me/radislavgandapascom" target="_blank" rel="noopener"><div class="top"><h2 class="disp">Подписаться на&nbsp;Telegram</h2><span class="arr2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></div><p>Лидерство, выступления и управление собой — в личном канале.</p></a>
 </section>
 </main>
 
