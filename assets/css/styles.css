@@ -93,8 +93,8 @@ nav.pill a:hover{background:var(--canvas);color:var(--ink)}
 .hero-photo .chip b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;font-weight:500}
 /* marquee */
 .marquee{background:var(--ink);overflow:hidden;padding:20px 0;transform:rotate(-1.2deg) scale(1.02);margin:10px 0}
-.mq-track{display:flex;gap:56px;width:max-content;animation:mq 26s linear infinite}
-.mq-track span{font-family:var(--disp);text-transform:uppercase;font-size:26px;font-weight:600;color:var(--gold);white-space:nowrap;display:flex;align-items:center;gap:56px}
+.mq-track{display:flex;width:max-content;animation:mq 26s linear infinite}
+.mq-track span{font-family:var(--disp);text-transform:uppercase;font-size:26px;font-weight:600;color:var(--gold);white-space:nowrap;display:flex;align-items:center;gap:56px;margin-right:56px}
 .mq-track span::after{content:"•";color:var(--red);font-size:20px}
 @keyframes mq{to{transform:translateX(-50%)}}
 /* meaning */
@@ -220,8 +220,8 @@ ul.checks li::before{content:"";position:absolute;left:0;top:22px;width:18px;hei
 .snav:active{transform:scale(.94)}
 /* client logo marquee */
 .lgmq{overflow:hidden;margin-top:clamp(48px,6vw,72px)}
-.lgmq-track{display:flex;gap:14px;width:max-content;animation:mq 34s linear infinite}
-.lgcard{background:var(--ink);border-radius:24px;height:92px;display:flex;align-items:center;justify-content:center;padding:0 44px;gap:14px;flex:none}
+.lgmq-track{display:flex;width:max-content;animation:mq 34s linear infinite}
+.lgcard{background:var(--ink);border-radius:24px;height:92px;display:flex;align-items:center;justify-content:center;padding:0 44px;gap:14px;flex:none;margin-right:14px}
 .lgcard img{display:block}
 /* final split cta */
 .cta2{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(64px,9vw,120px)}
