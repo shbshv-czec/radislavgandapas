@@ -192,9 +192,9 @@ ul.checks li::before{content:"";position:absolute;left:0;top:22px;width:18px;hei
 .book .cover{aspect-ratio:3/4;border-radius:20px;background:repeating-linear-gradient(-45deg,#dbdad6 0 14px,#eceae6 14px 28px);display:flex;align-items:flex-end;padding:18px;position:relative;overflow:hidden}
 .book .cover em{font-style:normal;font-family:var(--disp);text-transform:uppercase;font-weight:600;font-size:22px;line-height:1;color:var(--ink);opacity:.8}
 /* Обложки: обрезаны по контуру, одинаковая высота, мягкая тень, единый фон */
-.book .cover:has(img){background:#ece8df;align-items:center;justify-content:center;padding:0}
-.book .cover img{position:static;height:80%;width:auto;max-width:84%;object-fit:contain;border-radius:3px;
-  box-shadow:0 16px 32px rgba(13,13,13,.22),0 3px 8px rgba(13,13,13,.12)}
+.book .cover:has(img){background:transparent;align-items:center;justify-content:center;padding:0;overflow:visible}
+.book .cover img{position:static;height:78%;width:auto;max-width:84%;object-fit:contain;border-radius:3px;
+  box-shadow:0 18px 42px rgba(13,13,13,.16)}
 .book .cover .ph{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke);background:rgba(255,255,255,.85);border-radius:999px;padding:6px 12px}
 .book .meta{display:flex;justify-content:space-between;align-items:center}
 .book .meta span{font-family:var(--mono);font-size:12px;color:var(--smoke)}
@@ -348,6 +348,20 @@ footer a:hover{color:var(--gold)}
 
 /* Подводка под заголовком секции (одна мысль на секцию) */
 .seclead{max-width:56ch;color:var(--slate);font-size:17px;line-height:1.6;margin:22px 0 clamp(28px,4vw,44px)}
+/* Текстовая ссылка в абзаце */
+.tlink{color:var(--ink);font-weight:600;border-bottom:2px solid var(--gold);padding-bottom:1px;transition:color .2s}
+.tlink:hover{color:var(--gold)}
+
+/* FAQ — тихий аккордеон, без акцента */
+.faq-list{max-width:860px;margin-top:clamp(22px,3vw,36px)}
+.faq-item{border-top:1px solid #d8d3c8}
+.faq-item:last-child{border-bottom:1px solid #d8d3c8}
+.faq-item summary{cursor:pointer;list-style:none;position:relative;padding:22px 46px 22px 0;font-family:var(--body);font-weight:600;font-size:clamp(17px,1.7vw,19px);line-height:1.35;color:var(--ink);transition:color .2s}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--gold)}
+.faq-item summary::after{content:"+";position:absolute;right:2px;top:18px;font-size:24px;font-weight:400;line-height:1;color:var(--gold);transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{margin:0;padding:0 46px 24px 0;color:var(--slate);font-size:16px;line-height:1.65;max-width:72ch}
 
 /* Разворачивание списка программ по кнопке */
 .prow--more{display:none}
