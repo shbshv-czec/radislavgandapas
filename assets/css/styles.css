@@ -119,7 +119,8 @@ nav.pill a:hover{background:var(--canvas);color:var(--ink)}
 .prow{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 32px;border-top:1px solid var(--canvas);transition:background .2s;cursor:pointer}
 .prow:first-child{border-top:none}
 .prow:hover{background:#faf9f7}
-.prow .t{font-family:var(--disp);text-transform:uppercase;font-size:clamp(19px,2vw,26px);font-weight:600;line-height:1.1}
+.prow .t{flex:1;text-align:center;font-family:var(--disp);text-transform:uppercase;font-size:clamp(19px,2vw,26px);font-weight:600;line-height:1.1}
+@media (max-width:640px){.prow .t{text-align:left}}
 .prow .num{font-family:var(--mono);font-size:12px;color:var(--smoke);width:32px;flex:none}
 .prow .arr{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ash);display:flex;align-items:center;justify-content:center;flex:none;transition:background .25s,border-color .25s,transform .25s}
 .prow:hover .arr{background:var(--gold);border-color:var(--gold);transform:rotate(-45deg)}
