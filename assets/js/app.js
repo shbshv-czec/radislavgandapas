@@ -217,14 +217,22 @@
       vidw.classList.add('cookie-wait');
       window.addEventListener('resize', lift);
     }
-    ok.addEventListener('click', function () {
+    // pointerup ловит тап у нижней кромки экрана надёжнее, чем click
+    // (iOS Safari может потратить первый тап на показ своей панели);
+    // done-флаг защищает от двойного срабатывания pointerup+click.
+    var done = false;
+    function accept() {
+      if (done) return;
+      done = true;
       try { localStorage.setItem(KEY, '1'); } catch (e) {}
       bar.hidden = true;
       if (vidw) {
         vidw.classList.remove('cookie-wait');
         window.removeEventListener('resize', lift);
       }
-    });
+    }
+    ok.addEventListener('pointerup', accept);
+    ok.addEventListener('click', accept);
   })();
 
   /* ---------- Ленивое фоновое видео ----------
