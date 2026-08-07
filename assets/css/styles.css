@@ -24,10 +24,10 @@
   /* Трекинг дисплейного набора Oswald: узкий тяжёлый гротеск капсом
      требует лёгкого положительного апроша, иначе стойки слипаются. */
   --disp-track:.02em}
-html{scroll-behavior:smooth;background:#ddd8d0}
+html{scroll-behavior:smooth;background:#ddd8d0;overflow-x:clip;overscroll-behavior-x:none}
 /* Якоря из меню встают под фиксированную шапку, а не за неё */
 section[id]{scroll-margin-top:100px}
-body{background:linear-gradient(115deg,rgba(255,255,255,0) 32%,rgba(255,253,247,.75) 50%,rgba(255,255,255,0) 68%) fixed,linear-gradient(160deg,#f0eeea 0%,#e7e3dc 46%,#d8d2c8 100%) fixed;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:linear-gradient(115deg,rgba(255,255,255,0) 32%,rgba(255,253,247,.75) 50%,rgba(255,255,255,0) 68%) fixed,linear-gradient(160deg,#f0eeea 0%,#e7e3dc 46%,#d8d2c8 100%) fixed;color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip;overscroll-behavior-x:none}
 body::after{content:"";position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
 a{color:var(--ink);text-decoration:none}
 a:hover{color:var(--gold)}
@@ -40,7 +40,7 @@ a:hover{color:var(--gold)}
 .half h2,.nval,.sdate,.flag h3,.subh,.subh2,.mnav a,.prow .t,.sbody h3,.ncard h3,.book .cover em,.flogo,.formcard h3{letter-spacing:var(--disp-track)}
 h2.disp{font-size:clamp(40px,6vw,76px);margin:18px 0 0}
 .sec{padding:clamp(64px,9vw,120px) 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--body);font-weight:600;font-size:16px;padding:18px 32px;border-radius:999px;border:none;cursor:pointer;transition:transform .25s cubic-bezier(.2,.7,.2,1),background .25s,color .25s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;gap:10px;font-family:var(--body);font-weight:600;font-size:16px;padding:18px 32px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .25s cubic-bezier(.2,.7,.2,1),background .25s,color .25s;white-space:nowrap}
 .btn:active{transform:scale(.97)}
 .btn-gold{background:var(--gold);color:#141310}
 .btn-gold:hover{background:#f0b74f;color:#141310;transform:translateY(-2px)}
@@ -59,7 +59,7 @@ h1.rv.in,h2.rv.in{clip-path:inset(-4% -4% -10% -4%)}
 .rv-l{transform:translateX(-56px)}.rv-r{transform:translateX(56px)}
 .rv-l.in,.rv-r.in{transform:none}
 /* header */
-header{position:fixed;inset:0 0 auto;z-index:50;padding:18px 0;transition:background .3s}
+header{position:fixed;inset:0 0 auto;z-index:50;padding:calc(18px + env(safe-area-inset-top,0px)) 0 18px;transition:background .3s}
 header.scrolled{background:rgba(232,229,223,.88);backdrop-filter:blur(14px);border-bottom:1px solid #d0cbc2}
 header.menu-open .logo{color:#fff}
 header.menu-open.scrolled{background:transparent;border-bottom-color:transparent;backdrop-filter:none}
@@ -286,8 +286,10 @@ footer a:hover{color:var(--gold)}
 }
 @media (max-width:1060px){.burger{display:flex}}
 /* floating video widget */
-.vidw{position:fixed;right:20px;bottom:20px;z-index:60;border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(13,13,13,.35),0 2px 8px rgba(13,13,13,.2);background:#0d0d0d;width:210px;cursor:pointer;transition:width .45s cubic-bezier(.2,.8,.2,1),transform .3s;transform:translateY(0)}
-.vidw.hide{transform:translateY(140%);pointer-events:none}
+.vidw{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:60;border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(13,13,13,.35),0 2px 8px rgba(13,13,13,.2);background:#0d0d0d;width:210px;cursor:pointer;transition:width .45s cubic-bezier(.2,.8,.2,1),transform .3s;transform:translateY(0)}
+/* Пока висит cookie-строка — приподнимаем виджет ровно над ней (видео всегда видно) */
+.vidw.cookie-wait{transform:translateY(calc(-1 * var(--cookie-lift, 60px)))}
+.vidw.hide{transform:translateY(140%)!important;pointer-events:none}
 .vidw .thumbbox{position:relative;aspect-ratio:16/9}
 .vidw .thumbbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .vidw .thumbbox::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,13,0) 40%,rgba(13,13,13,.65))}
@@ -300,7 +302,7 @@ footer a:hover{color:var(--gold)}
 .vidw.open{width:min(420px,calc(100vw - 40px));cursor:default}
 .vidw.open .play,.vidw.open .vlabel{display:none}
 .vidw iframe{display:block;width:100%;aspect-ratio:16/9;border:none}
-@media (max-width:600px){.vidw{width:170px;right:14px;bottom:14px}.nums-grid{grid-template-columns:1fr;gap:36px}.nval{font-size:clamp(44px,13vw,60px)}}
+@media (max-width:600px){.vidw{width:170px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}.nums-grid{grid-template-columns:1fr;gap:36px}.nval{font-size:clamp(44px,13vw,60px)}}
 
 /* ── Доступность ── */
 /* Подпись к полю: не видна глазом, но доступна скринридеру. */
@@ -476,3 +478,37 @@ a.vcard:hover{transform:translateY(-4px);color:var(--ink)}
   .tg-qr{position:static;width:100%;max-width:200px;margin:20px auto 0;flex-direction:row;gap:14px;align-items:center}
   .tg-right{flex-direction:column}
 }
+
+/* ═══════════════ Юридическая страница (политика) ═══════════════ */
+.legal{padding:clamp(96px,12vw,140px) 0 clamp(56px,8vw,88px)}
+.legal .wrap{max-width:880px}
+.legal-head{margin-bottom:clamp(32px,4vw,48px);padding-bottom:26px;border-bottom:1.5px solid rgba(13,13,13,.12)}
+.legal-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--slate);text-decoration:none}
+.legal-back:hover{color:var(--ink)}
+.legal-head h1{font-family:var(--disp);font-weight:600;letter-spacing:var(--disp-track);text-transform:uppercase;font-size:clamp(28px,4.4vw,46px);line-height:1.04;color:var(--ink)}
+.legal-meta{margin-top:14px;font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--slate)}
+.legal h2{font-family:var(--disp);font-weight:600;letter-spacing:var(--disp-track);text-transform:uppercase;font-size:clamp(18px,2.3vw,24px);line-height:1.15;color:var(--ink);margin:clamp(38px,5vw,52px) 0 16px}
+.legal h3{font-weight:700;font-size:16px;line-height:1.4;color:var(--ink);margin:26px 0 8px}
+.legal p{font-size:16px;line-height:1.72;color:#2a2a27;margin:0 0 13px}
+.legal ul{margin:0 0 15px;padding-left:22px}
+.legal li{font-size:16px;line-height:1.66;color:#2a2a27;margin:0 0 8px}
+.legal a{color:inherit;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:1.5px;text-underline-offset:3px}
+.legal a:hover{text-decoration-color:var(--ink)}
+.legal-req{margin-top:clamp(44px,6vw,64px);padding-top:28px;border-top:1.5px solid rgba(13,13,13,.12)}
+.legal-req h2{margin-top:0}
+.legal-req p{margin:0 0 6px}
+
+/* ═══════════════ Cookie-уведомление (тонкая строка внизу) ═══════════════ */
+.cookie{position:fixed;left:0;right:0;bottom:0;z-index:80;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 20px;background:var(--card);border-top:1px solid rgba(13,13,13,.1);box-shadow:0 -6px 24px rgba(13,13,13,.1);padding:12px 20px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+.cookie[hidden]{display:none}
+.cookie-txt{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.cookie-txt p{margin:0;font-size:13px;line-height:1.4;color:var(--slate)}
+.cookie-txt a{font-size:12px;color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:2px;white-space:nowrap}
+.cookie .btn{flex:none;padding:10px 24px;font-size:14px}
+@media (max-width:520px){.cookie{justify-content:space-between;text-align:left}.cookie .btn{padding:10px 20px}}
+
+/* ═══════════════ Чекбоксы согласия у формы ═══════════════ */
+.fsub .consent{display:flex;align-items:flex-start;gap:10px;margin:0 0 11px;font-size:11.5px;line-height:1.45;color:#9d9c96;text-align:left;cursor:pointer}
+.fsub .consent input{appearance:auto;-webkit-appearance:auto;width:16px;height:16px;flex:none;margin:1px 0 0;padding:0;background:none;border:none;border-radius:0;accent-color:var(--gold);cursor:pointer}
+.fsub .consent a{color:#cfcdc7;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:2px}
+.fsub .consent a:hover{color:#fff}

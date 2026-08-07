@@ -193,6 +193,40 @@
     });
   });
 
+  /* ---------- Cookie-уведомление ----------
+     Показывается один раз; согласие запоминается в localStorage.
+     Если хранилище недоступно — плашка просто показывается и
+     закрывается на время сессии, без ошибок. */
+  (function () {
+    var bar = document.getElementById('cookie');
+    var ok = document.getElementById('cookie-ok');
+    if (!bar || !ok) return;
+    var vidw = document.getElementById('vidw');   // плавающее видео (только на главной)
+    var KEY = 'rg-cookie-ok';
+    var agreed = false;
+    try { agreed = !!localStorage.getItem(KEY); } catch (e) {}
+    if (agreed) return;
+    bar.hidden = false;
+    // Пока строка висит — приподнимаем видео-виджет ровно на её высоту,
+    // чтобы они не пересекались ни на одном экране. Видео остаётся видимым.
+    function lift() {
+      if (vidw) vidw.style.setProperty('--cookie-lift', (bar.offsetHeight + 16) + 'px');
+    }
+    if (vidw) {
+      lift();
+      vidw.classList.add('cookie-wait');
+      window.addEventListener('resize', lift);
+    }
+    ok.addEventListener('click', function () {
+      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+      bar.hidden = true;
+      if (vidw) {
+        vidw.classList.remove('cookie-wait');
+        window.removeEventListener('resize', lift);
+      }
+    });
+  })();
+
   /* ---------- Разворачивание списка программ ----------
      Кнопка [data-expand] раскрывает скрытые строки .prow--more
      в списке с соответствующим id и меняет свой текст. */

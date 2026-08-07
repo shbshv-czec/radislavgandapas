@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- Политика безопасности. Всё своё; внешние адреса — только плееры
      (YouTube и Rutube), и те подключаются только после клика по видео.
@@ -465,15 +465,15 @@
 <div><h4>Соцсети</h4><ul><li><a href="https://t.me/radislavgandapascom">Telegram</a></li><li><a href="https://youtube.com/@RadislavGandapas">YouTube</a></li><li><a href="https://vk.com/radislavgandapas_vk">ВКонтакте</a></li></ul></div>
 <div class="fsub"><h4>Подпишитесь на рассылку</h4>
 <p class="fsub-note">Материалы по лидерству, ораторскому искусству и развитию.</p>
-<form data-fake data-done="Готово, проверьте почту."><label class="vh" for="f-sub">Ваш e-mail</label><input id="f-sub" name="email" type="email" autocomplete="email" placeholder="Ваш e-mail" required><button class="btn btn-gold" type="submit">Подписаться</button></form>
-<p class="agree">Даю согласие на получение информационных и маркетинговых рассылок, отказаться можно в любой момент в личном кабинете.</p>
+<form data-fake data-done="Готово, проверьте почту."><label class="vh" for="f-sub">Ваш e-mail</label><input id="f-sub" name="email" type="email" autocomplete="email" placeholder="Ваш e-mail" required>
+<label class="consent"><input type="checkbox" name="agree_pd" required><span>Я согласен(-на) с <a href="privacy.html" target="_blank" rel="noopener">Политикой обработки персональных данных</a> и даю <a href="soglasie.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a>.</span></label>
+<label class="consent"><input type="checkbox" name="agree_ads" required><span>Даю согласие на получение информационных и рекламных рассылок. Отказаться можно в любой момент.</span></label>
+<button class="btn btn-gold" type="submit">Подписаться</button></form>
 </div>
 </div>
 <div class="fbot">
 <span>ИП Гандапас Радислав Иванович · ИНН 504908402234 · ОГРН 317774600459550</span>
-<a href="#">Политика обработки персональных данных</a>
-<span class="lang"><b>Ru</b> · Eng</span>
-</div>
+<a href="privacy.html">Политика обработки персональных данных</a></div>
 </div>
 </footer>
 
@@ -484,6 +484,11 @@
 <span class="vlabel">Смотреть видео</span>
 </button>
 <button class="vx" id="vidw-close" type="button" aria-label="Закрыть видео"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14"/><path d="M19 5L5 19"/></svg></button>
+</div>
+
+<div class="cookie" id="cookie" hidden>
+<div class="cookie-txt"><p>Мы&nbsp;используем файлы «cookie» для&nbsp;удобства работы с&nbsp;сайтом.</p><a href="privacy.html">Подробнее</a></div>
+<button class="btn btn-gold" id="cookie-ok" type="button">Хорошо</button>
 </div>
 </body>
 </html>
