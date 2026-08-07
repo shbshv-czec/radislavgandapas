@@ -227,6 +227,25 @@
     });
   })();
 
+  /* ---------- Ленивое фоновое видео ----------
+     [data-lazy-video] с preload="none" не тянет ни байта, пока блок
+     не приблизится к экрану. Вне экрана — пауза (трафик и батарея). */
+  (function () {
+    var vids = document.querySelectorAll('video[data-lazy-video]');
+    if (!vids.length) return;
+    if (!('IntersectionObserver' in window)) {
+      vids.forEach(function (v) { v.play().catch(function () {}); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) e.target.play().catch(function () {});
+        else e.target.pause();
+      });
+    }, { rootMargin: '200px 0px' });
+    vids.forEach(function (v) { io.observe(v); });
+  })();
+
   /* ---------- Разворачивание списка программ ----------
      Кнопка [data-expand] раскрывает скрытые строки .prow--more
      в списке с соответствующим id и меняет свой текст. */

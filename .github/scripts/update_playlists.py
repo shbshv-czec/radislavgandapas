@@ -182,7 +182,7 @@ def card_html(ep, rel, n):
     return (
         f'<a class="vcard" href="{url}" target="_blank" rel="noopener">'
         f'<span class="imgph imgph--169 imgph--filled">'
-        f'<img src="{rel}/{n}" width="480" height="270" alt="" loading="lazy" decoding="async"></span>'
+        f'<img src="{rel}/{n}" width="480" height="270" alt="{title}" loading="lazy" decoding="async"></span>'
         f'<span class="vcard-cap">{title}</span>{views_html}</a>'
     )
 
