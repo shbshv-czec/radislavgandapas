@@ -16,6 +16,29 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hdr = document.getElementById('hdr');
 
+  /* ---------- Cookies ----------
+     Сайт использует first-party cookies — ровно то, о чём говорит
+     плашка и Политика (технические и настройки): rg_consent — факт
+     согласия, rg_vidw_closed — «видео-виджет закрыт». Необязательные
+     cookie ставятся только после нажатия «Хорошо». */
+  function setCookie(name, value, days) {
+    var d = new Date();
+    d.setTime(d.getTime() + days * 864e5);
+    document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax;Secure';
+  }
+  function getCookie(name) {
+    var m = document.cookie.match('(?:^|; )' + name + '=([^;]*)');
+    return m ? m[1] : null;
+  }
+  var cookieConsent = getCookie('rg_consent') === '1';
+  // миграция: раньше согласие хранилось в localStorage
+  try {
+    if (!cookieConsent && localStorage.getItem('rg-cookie-ok')) {
+      cookieConsent = true;
+      setCookie('rg_consent', '1', 365);
+    }
+  } catch (e) {}
+
   /* ---------- Мобильное меню ---------- */
   (function () {
     var mnav = document.getElementById('mnav');
@@ -162,6 +185,9 @@
     var close = document.getElementById('vidw-close');
     if (!box || !open || !close) return;
 
+    // настройка из cookie: виджет закрывали недавно — не показываем
+    if (getCookie('rg_vidw_closed') === '1') box.classList.add('hide');
+
     open.addEventListener('click', function () {
       if (box.classList.contains('open')) return;
       box.classList.add('open');
@@ -176,6 +202,8 @@
     close.addEventListener('click', function (e) {
       e.stopPropagation();
       box.classList.add('hide');
+      // запоминаем настройку в cookie — только при данном согласии
+      if (cookieConsent) setCookie('rg_vidw_closed', '1', 7);
     });
   })();
 
@@ -194,18 +222,16 @@
   });
 
   /* ---------- Cookie-уведомление ----------
-     Показывается один раз; согласие запоминается в localStorage.
-     Если хранилище недоступно — плашка просто показывается и
-     закрывается на время сессии, без ошибок. */
+     Показывается один раз; согласие запоминается в cookie rg_consent
+     (localStorage — фолбэк). До согласия необязательные cookie
+     не ставятся. */
   (function () {
     var bar = document.getElementById('cookie');
     var ok = document.getElementById('cookie-ok');
     if (!bar || !ok) return;
     var vidw = document.getElementById('vidw');   // плавающее видео (только на главной)
     var KEY = 'rg-cookie-ok';
-    var agreed = false;
-    try { agreed = !!localStorage.getItem(KEY); } catch (e) {}
-    if (agreed) return;
+    if (cookieConsent) return;
     bar.hidden = false;
     // Пока строка висит — приподнимаем видео-виджет ровно на её высоту,
     // чтобы они не пересекались ни на одном экране. Видео остаётся видимым.
@@ -224,6 +250,8 @@
     function accept() {
       if (done) return;
       done = true;
+      cookieConsent = true;
+      setCookie('rg_consent', '1', 365);
       try { localStorage.setItem(KEY, '1'); } catch (e) {}
       bar.hidden = true;
       if (vidw) {
